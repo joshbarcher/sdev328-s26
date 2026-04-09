@@ -17,7 +17,8 @@
     "dev": "nodemon",
     "prod": "node --env-file=.env src/server.js",
     "start": "",
-    "test": ""
+    "test": "",
+    "lint": "eslint"
   },
   "dependencies": {
     "express": "^5.2.1"
