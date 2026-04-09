@@ -1,0 +1,5 @@
+{
+    "exec": "node --env-file=.env src/server.js",
+    "watch": ["src"],
+    "ext": "js,json"
+}
