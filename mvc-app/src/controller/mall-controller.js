@@ -1,4 +1,4 @@
-import { getMalls, getMallById } from '../service/mall-service.js';
+import { getMalls, getMallById, getLocations } from '../service/mall-service.js';
 
 export const allMalls = (req, res) => {
     const malls = getMalls();
@@ -18,4 +18,10 @@ export const mallById = (req, res) => {
             message: `Mall not found with id ${id}`
         })
     }
+}
+
+export const mallLocations = (req, res) => {
+    const locs = getLocations();
+    res.status(200);
+    res.json(locs);
 }

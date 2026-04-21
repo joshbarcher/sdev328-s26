@@ -15,3 +15,7 @@ export const getMalls = () => {
 
     return records;
 }
+
+export const getLocations = () => {
+    return data.map(mall => mall.location);
+}
