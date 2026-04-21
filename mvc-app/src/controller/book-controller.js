@@ -4,18 +4,35 @@ const book = {
     pages: 500,
     author: "Suzanne Collins",
     genre: "dystopian",
-    publisher: "",
+    publisher: "Scholastic",
     year: 2022,
     
 }
 
+export const printAll = (req, res) => {
+    //const year = req.query.year;
+    //const genre = req.query.genre;
+    //const title = req.query.title;
+
+    //alternative
+    const { year, genre, title } = req.query;
+
+    console.log(year, genre, title);
+
+    res.status(200).json(req.query);
+}
+
 export const getField = (req, res) => {
-    const field = req.query.field;
-    console.log(req.query);
+    const field = req.query.fields;
+    const fields = field.split(","); //array of field strings
 
-    const value = book[field];
+    let result = {};
+    for (const fld of fields) {
+        const value = book[fld];
+        result[fld] = value;
+    }
 
-    res.status(200).json({ value });
+    res.status(200).json(result);
 }
 
 export const getAuthor = (req, res) => {
