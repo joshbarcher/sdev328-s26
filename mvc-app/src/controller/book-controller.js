@@ -2,7 +2,20 @@ const book = {
     chapters: 20,
     title: "Hunger Games: Songbirds & Snakes",
     pages: 500,
-    author: "Suzanne Collins"
+    author: "Suzanne Collins",
+    genre: "dystopian",
+    publisher: "",
+    year: 2022,
+    
+}
+
+export const getField = (req, res) => {
+    const field = req.query.field;
+    console.log(req.query);
+
+    const value = book[field];
+
+    res.status(200).json({ value });
 }
 
 export const getAuthor = (req, res) => {
