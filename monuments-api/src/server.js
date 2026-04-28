@@ -3,8 +3,9 @@ import { router } from './routers/monuments.router.js';
 
 const app = express();
 
+//body parser for JSON data
+app.use(express.json());
 app.get("/health", (req, res) => res.status(200).json({"available": true}));
-
 app.use("/", router);
 
 const port = 8000;
