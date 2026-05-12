@@ -66,3 +66,5 @@ let jsonObject = JSON.parse(jsonString);
 console.log(jsonObject.activityLog[0].action);
 
 //convert from object -> string
+let string = JSON.stringify(jsonObject, null, 2);
+console.log(string);

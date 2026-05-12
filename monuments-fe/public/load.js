@@ -2,6 +2,42 @@
 //on start
 loadMonuments();
 
+//assign submit handler
+const form = document.querySelector("#monument-form");
+form.onsubmit = handleSubmit;
+
+async function handleSubmit(event) {
+    event.preventDefault();
+
+    //get our form values
+    const name = document.querySelector("#name").value;
+    const yearCompleted = document.querySelector("#yearCompleted").value;
+    const type = document.querySelector("#type").value;
+    const heightFeet = document.querySelector("#heightFeet").value;
+    const theme = document.querySelector("#theme").value;
+
+    const formValues = {
+        name,
+        yearCompleted,
+        type,
+        heightFeet,
+        theme
+    }
+    console.log(formValues);
+
+    const url = "http://localhost:8000/api/monuments";
+    const config = {
+        method: "post",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formValues)
+    }
+    const response = await fetch(url, config);
+    console.log(response);
+    console.log("Form submitted!");
+}
+
 //connect to API + gather data
 async function loadMonuments() {
     const url = "http://localhost:8000/api/monuments";

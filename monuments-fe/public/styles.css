@@ -1,0 +1,38 @@
+#monuments-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.monument {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgb(28, 28, 31);
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.7));
+
+    h2 {
+        color: rgb(82, 82, 82);
+        border-bottom: 1px solid rgb(82, 82, 82);
+        padding-bottom: 4px;
+    }
+}
+
+form {
+    /* border: 1px solid black;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.7); */
+    width: fit-content;
+    margin: 1rem; 
+
+    label, input {
+        display: block;
+    }
+
+    label {
+        margin-bottom: 0.25rem;
+    }
+
+    input, button {
+        margin-bottom: 0.5rem;
+    }
+}
