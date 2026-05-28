@@ -7,10 +7,21 @@ import multiFormRoutes from "./routers/form.routes.js";
 import statusRoutes from "./routers/status.routes.js";
 import cookieParser from "cookie-parser";
 import { visitorCount } from "./middleware/middleware.js";
+import session from 'express-session';
 
 const app = express();
 
 app.use(cookieParser());
+app.use(session({
+    secret: "7d316721-2f80-4967-be29-d26e42d9daab",
+    resave: false,
+    saveUnitialized: true, 
+    cookie: {
+        httpOnly: true, //don't allow access through JS
+        secure: false, //requires HTTPS?
+        maxAge: 20 * 60 * 1000 //20 minute timeout
+    }
+}));
 
 app.set("view engine", "ejs");
 app.set("views", path.join(process.cwd(), "src", "views"));
